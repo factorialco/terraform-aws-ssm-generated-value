@@ -33,7 +33,7 @@ resource "aws_lambda_function" "generate_value" {
   source_code_hash = data.archive_file.generate_value.output_base64sha256
   timeout          = 30
   handler          = "index.handler"
-  runtime          = "nodejs22.x"
+  runtime          = "nodejs18.x"
   environment {
     variables = {
       PARAMETER_NAME : (var.use_secrets_manager ? aws_secretsmanager_secret.secret[0].id : var.parameter_name),
