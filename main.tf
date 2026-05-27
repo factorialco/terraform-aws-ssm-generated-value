@@ -65,7 +65,7 @@ resource "aws_lambda_invocation" "generate_value" {
 
   }
   lifecycle {
-    replace_triggered_by = [aws_lambda_function.generate_value]
+    replace_triggered_by = [aws_lambda_function.generate_value.source_code_hash]
   }
 }
 
